@@ -1,0 +1,1 @@
+export {ChuckNorrisQuote} from './chuck-norris'
