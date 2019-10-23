@@ -25,11 +25,45 @@ export class Dog extends Component {
             alert(error.message);   
         }
     }
+
+    rightArticle = () => {
+        const vowels = ["a", "e", "i", "o", "u"];
+        let i = 0;
+        let article = "";
+        for (const vowel of vowels) {
+            if(this.state.dogname.charAt(0).includes(vowel)) {
+                i=i+1;
+            }
+        }
+        if(i===0) {
+            article = "a";
+            return article
+        } else {
+            article = "an";
+            return article;
+        }
+    }
+
+    dogSpeech = () => {
+        const speeches = [
+            "Please, love me! because I will ;)",
+            "Choose me, I'm The underdog ! ^^",
+            "Can you give me a hug ?",
+            "Hey, if there are no dogs in haven, let me die, so I will be the first !",
+            "Look at here, No one appreciates the very special genius of your conversation as much as I do.",
+            "With me, you will never fill uggly and alone ;)",
+            "Come on, give me a kiss ! ksosko",
+            "Do you fill that connection between you and me ? Yeeees you dooooo !"
+        ]
+        return speeches[Math.floor(Math.random() * 8)];
+    }
+
     render() {
         return (
             <div id="center">
-                <p id="text">I'm a {this.state.dogname.replace(/-/g, " ")}</p>
+                <p id="text">I'm {this.rightArticle()} {this.state.dogname.replace(/-/g, " ")}</p>
                 <div id="image-container"><img id="image" src={this.state.dogurl} alt={this.state.dogname}/></div>
+                <p id="spitch">{this.dogSpeech()}</p>
             </div>
         )
     }
