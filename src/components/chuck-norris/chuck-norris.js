@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './style.css';
 import { getClient } from '../../utils';
 
 export class ChuckNorrisQuote extends Component {
     state = {
-        quote: {}
+        image: "",
+        quote: "",
+        link: ""
     }
     http = null;
 
@@ -19,16 +22,22 @@ export class ChuckNorrisQuote extends Component {
     makeNetworkRequest = async () => {
         try {
             const response = await this.http.get('/jokes/random');
-            this.setState({quote: response.data})
+            this.setState({
+                image: response.data.icon_url,
+                quote: response.data.value,
+                link: response.data.url
+            })
             
         } catch (error) {
-            alert(error.message);   
+            alert(error.message);
         }
     }
     render() {
         return (
-            <div>
-                {JSON.stringify(this.state.quote)}
+            <div id="center">
+                <p id="text">Chuck Norris</p>
+                <div id="image-container"><img id="image" src={this.state.image} alt="chuck-norris"/></div>
+                <p id="speech-norris">{this.state.quote}</p>
             </div>
         )
     }

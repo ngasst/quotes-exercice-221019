@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './style.css';
 import { getClient } from '../../utils';
 
 export class Dog extends Component {
@@ -29,9 +30,9 @@ export class Dog extends Component {
     rightArticle = () => {
         const vowels = ["a", "e", "i", "o", "u"];
         if(vowels.includes(this.state.dogname.charAt(0))) {
-            return "a"
-        } else {
             return "an"
+        } else {
+            return "a"
         }
     }
 
@@ -54,7 +55,7 @@ export class Dog extends Component {
             <div id="center">
                 <p id="text">I'm {this.rightArticle()} {this.state.dogname.replace(/-/g, " ")}</p>
                 <div id="image-container"><img id="image" src={this.state.dogurl} alt={this.state.dogname}/></div>
-                <p id="spitch">{this.dogSpeech()}</p>
+                <p id="speech-dog">{this.dogSpeech()}</p>
             </div>
         )
     }
