@@ -28,19 +28,10 @@ export class Dog extends Component {
 
     rightArticle = () => {
         const vowels = ["a", "e", "i", "o", "u"];
-        let i = 0;
-        let article = "";
-        for (const vowel of vowels) {
-            if(this.state.dogname.charAt(0).includes(vowel)) {
-                i=i+1;
-            }
-        }
-        if(i===0) {
-            article = "a";
-            return article
+        if(vowels.includes(this.state.dogname.charAt(0))) {
+            return "a"
         } else {
-            article = "an";
-            return article;
+            return "an"
         }
     }
 

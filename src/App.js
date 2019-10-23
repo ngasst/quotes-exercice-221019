@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
         <Quote subject="dog"/>
+        <Quote subject="chuck"/>
     </div>
   );
 }
