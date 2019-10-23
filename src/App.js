@@ -5,7 +5,7 @@ import { Quote } from './components/quote';
 function App() {
   return (
     <div className="App">
-        <Quote subject="chuck"/>
+        <Quote subject="dog"/>
     </div>
   );
 }
